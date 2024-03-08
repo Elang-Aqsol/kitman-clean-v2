@@ -13,7 +13,11 @@ export const metadata = {
   description: "Login form before dashboard Kitman-clean",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html lang="en">
       <body
