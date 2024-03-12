@@ -7,9 +7,10 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
-} from "../ui/card";
+} from "@/components/ui/card";
+import Link from "next/link";
 
-export function Error404() {
+export default function Error404() {
   return (
     <Card className="absolute w-1/2 md:w-auto top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 md:flex md:flex-col items-center">
       <CardHeader>
@@ -23,12 +24,17 @@ export function Error404() {
       <CardContent>
         <Image
           src={RepImage}
-          className="w-64 w-screen md:w-96 flex items-center hover:scale-125 transition-transform"
+          className="w-screen md:w-96 flex items-center hover:scale-125 transition-transform"
           alt="404 Error Image"
         />
       </CardContent>
       <CardFooter className="justify-center text-center">
-        try other Page
+        <p>
+          try other&nbsp;
+          <Link href={"/dashboard"} className="text-sky-400">
+            Page
+          </Link>
+        </p>
       </CardFooter>
     </Card>
   );
