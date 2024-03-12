@@ -17,6 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Logo from "@/public/kitman-clean-logo.jpg";
+import { useToast } from "../ui/use-toast";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -28,6 +29,8 @@ const formSchema = z.object({
 });
 
 export default function CardLogin() {
+  const { toast } = useToast();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -37,7 +40,10 @@ export default function CardLogin() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    toast({
+      title: "Your account details:",
+      description: `Username: ${values.username}, Password: ${values.password}`,
+    });
   }
   return (
     <Card className="max-w-full w-[340px]">

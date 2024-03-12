@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import { nextui } from "@nextui-org/react";
 
 const config = {
   darkMode: ["class"],
@@ -8,6 +9,7 @@ const config = {
     "./components/**/*.{ts,tsx}",
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   prefix: "",
   theme: {
@@ -22,6 +24,8 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
+      darkMode: "class",
+      plugins: [nextui()],
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
